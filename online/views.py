@@ -20,13 +20,12 @@ def regist(req):
             if uf.is_valid():
                 username = uf.cleaned_data['username']
                 password = uf.cleaned_data['password']
-                if (User.objects.filter(username__exact=username)):
+                if (User.objects.filter (username__exact=username)):
                     return HttpResponse('该用户名已存在！')
                 else:
                     User.objects.create(username=username, password=password)
-                    return HttpResponse('注册成功!')
-        else:
-            return HttpResponse('验证码输入错误，请重新输入')
+                    # return HttpResponse('注册成功!')  提示框
+                    return render(req, 'online/login.html', {'uf': uf})
     else:
         if req.session.get('username', False):
             return HttpResponseRedirect(reverse('online:index'))
