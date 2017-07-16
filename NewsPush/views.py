@@ -7,6 +7,8 @@ from treeView.models import treeView
 
 
 
+
+
 def index(request):
      news_list = models.NewsPost.objects.all()
      nodes = treeView.objects.all()

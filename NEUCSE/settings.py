@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'NewsPush',
     'online',
     'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -56,6 +57,7 @@ MIDDLEWARE = [
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 ROOT_URLCONF = 'NEUCSE.urls'
 
@@ -126,9 +128,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/ckeditor-uploads/'
 
 CKEDITOR_JQUERY_URL ='/static/js/jquery.min.js'
 CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_UPLOAD_SLUGIFY_FILENAME = False
+CKEDITOR_RESTRICT_BY_USER = True
+CKEDITOR_BROWSE_SHOW_DIRS = True
+CKEDITOR_RESTRICT_BY_DATE = True
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
