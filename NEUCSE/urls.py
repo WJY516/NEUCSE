@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #url(r'^treeView/', views.tree, name='tree'),
     url(r'^treeView/', include('treeView.urls')),
+
     url(r'^$', views.index, name='index'),
     url(r'newspush/', include('NewsPush.urls', namespace='NewsPush')),
     url(r'^online/',include('online.urls', namespace='online')),
