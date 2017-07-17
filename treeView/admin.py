@@ -28,13 +28,13 @@ class ContinentFilter(admin.SimpleListFilter):
             return continent.get_descendants(include_self=True)
 
 class treeViewAdmin(DjangoMpttAdmin):
-    # list_display = ('id', 'name', 'parent', 'level', 'rank')
     tree_auto_open = 0
     list_display = ('id','name')
     ordering = ('name',)
     list_filter = (ContinentFilter,)
 
-    def has_change_permission(self, request, obj=None):
-        return request.user.is_superuser
+    # function: change TreeNode permission
+    #def has_change_permission(self, request, obj=None):
+        #return request.user.is_superuser
 
 admin.site.register(treeView, treeViewAdmin)

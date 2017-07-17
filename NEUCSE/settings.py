@@ -57,7 +57,6 @@ MIDDLEWARE = [
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
-CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 ROOT_URLCONF = 'NEUCSE.urls'
 
@@ -115,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'zh-Hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -130,12 +129,15 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = '/ckeditor-uploads/'
 
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_JQUERY_URL ='/static/js/jquery.min.js'
 CKEDITOR_IMAGE_BACKEND = "pillow"
 CKEDITOR_UPLOAD_SLUGIFY_FILENAME = False
 CKEDITOR_RESTRICT_BY_USER = True
 CKEDITOR_BROWSE_SHOW_DIRS = True
 CKEDITOR_RESTRICT_BY_DATE = True
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
+
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
