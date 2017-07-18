@@ -48,12 +48,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
@@ -128,6 +130,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/ckeditor-uploads/'
+
+
+# user profile
+
+AUTH_PROFILE_MODULE = 'online.UserProfile'
+
+
+# CKeditor
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_JQUERY_URL ='/static/js/jquery.min.js'
