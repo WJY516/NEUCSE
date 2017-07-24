@@ -10,12 +10,18 @@ from treeView.models import treeView
 
 
 def index(request):
-     news_list = models.NewsPost.objects.all()
-     nodes = treeView.objects.all()
-     return render(request,'NewsPush/index.html', {'news_list': news_list, 'nodes': nodes})
+    # news_list = models.NewsPost.objects.all()
+    news_list = models.NewsPost.objects.filter(status='p')
+    nodes = treeView.objects.all()
+    return render(request,'NewsPush/index.html', {'news_list': news_list, 'nodes': nodes})
 
 
 def news_content_page(request,news_list_id):
     news = models.NewsPost.objects.get(pk=news_list_id)
+    if news.status != 'p':
+        news = models.NewsPost.objects.none()
+        return HttpResponse('403')
     nodes = treeView.objects.all()
     return render(request,'NewsPush/news_content_page.html',{'news': news, 'nodes': nodes})
+
+

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.http import HttpResponse, HttpResponseRedirect
 from django import forms
-from online.models import UserProfile
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.shortcuts import render
