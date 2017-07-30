@@ -8,7 +8,7 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from geetest import GeetestLib
 from django.utils import timezone
-from .models import create_user_profile
+# from .models import create_user_profile
 from django.db.models.signals import post_save
 
 
@@ -31,7 +31,7 @@ def regist(req):
                     user = User.objects.create_user(username,"",password)
                     user.save()
                     user.date_joined=timezone.now()
-                    post_save.connect(create_user_profile, sender=User)
+                    # post_save.connect(create_user_profile, sender=User)
                     # return HttpResponse('注册成功!')  提示框
                     return render(req, 'online/login.html', {'uf': uf})
     else:
