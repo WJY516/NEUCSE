@@ -135,7 +135,7 @@ STATIC_ROOT = '/ckeditor-uploads/'
 
 # user profile
 
-AUTH_PROFILE_MODULE = 'online.UserProfile'
+# AUTH_PROFILE_MODULE = 'online.UserProfile'
 
 
 # CKeditor
